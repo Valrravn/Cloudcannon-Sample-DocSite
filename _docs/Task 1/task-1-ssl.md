@@ -19,9 +19,9 @@ There are multiple ways to for a server and client to agree to use the secure co
 
 Once both parties agree on the connection security, the procedure called `SSL handshake` starts.
 
-1. The client sends the `"Client Hello"` message along with its portion of a cryptographic key.
+1. The client sends the _"Client Hello"_ message along with its portion of a cryptographic key.
 2. The server chooses a cypher and hash function from the list the client sent.
-3. The server sends back the `"Server Hello" - server key portion - key agreement protocol - SSL certificate - "Server Finished"` sequence. 
+3. The server sends back the _"Server Hello" - server key portion - key agreement protocol - SSL certificate - "Server Finished"_ sequence. 
 4. The client checks the server's SSL certificate legitimacy, and proceeds to combining the encryption key from client and server key portions.
 
 If the handshake is successfull, both client and server use obtained key portions to generate encryption keys, and a secure connection opens.
@@ -63,7 +63,7 @@ Depending on the required security level:
 * _Organization Validation (OV)_ – A CA validates the website owner and carries out minor background checks, looking into the business and the owner itself. These certificates provide improved credibility and consumer trust for businesses.
 * _Extended Validation (EV)_ – A CA validates everything, up to the owner's physical location and legal existence. Issued for critical businesses, such as digital banks or money transfer services.
 
-Validation and protection levels affect the certificate price and time it will take to get one.
+Validation and protection levels affect the certificate price and time it will take to obtain this certificate.
 
 
 ## SSL Disadvantages
