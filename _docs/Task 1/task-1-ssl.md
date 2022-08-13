@@ -41,14 +41,14 @@ As the number of cyber attacks rises and users become more aware of "digital hyg
 
 ## SSL vs TLS
 
-The latest 3.0 version of SSL was deprecated by RFC in 2015 in favor of TLS – the more secure encryption protocol.
+The latest 3.0 version of SSL was deprecated by RFC in 2015 in favor of TLS â€“ the more secure encryption protocol.
 Technically speaking, it's only TLS now, but the catchy SSL acronym stuck with the industry, and both terms are often used interchangeably.
 If you're not particularly nitpicking about using correct terms, you can use any of them.
 
 ## Certificate Authorities and Certificate Types
 
 In order for the entire concept of TLS certificates to work, these certificates must come from a trusted source (otherwise, anyone could issue their own certificates and attach them to their websites).
-Such valid source is called a Certificate Authority (CA) – a trusted third-party provider that issues, stores, and signs digital certificates.
+Such valid source is called a Certificate Authority (CA) â€“ a trusted third-party provider that issues, stores, and signs digital certificates.
 
 Depending on the level of required protection and the number of subdomains, a CA issues different types of certificates.
 
@@ -60,9 +60,9 @@ Depending on the domain and subdomain number:
 
 Depending on the required security level:
 
-* _Domain Validation (DV)_ – A CA validates the website owner only. Such certificates are issued for public resources that do not require extensive security.
-* _Organization Validation (OV)_ – A CA validates the website owner and carries out minor background checks, looking into the business and the owner itself. These certificates provide improved credibility and consumer trust for businesses.
-* _Extended Validation (EV)_ – A CA validates everything, up to the owner's physical location and legal existence. Issued for critical businesses, such as digital banks or money transfer services.
+* _Domain Validation (DV)_ â€“ A CA validates the website owner only. Such certificates are issued for public resources that do not require extensive security.
+* _Organization Validation (OV)_ â€“ A CA validates the website owner and carries out minor background checks, looking into the business and the owner itself. These certificates provide improved credibility and consumer trust for businesses.
+* _Extended Validation (EV)_ â€“ A CA validates everything, up to the owner's physical location and legal existence. Issued for critical businesses, such as digital banks or money transfer services.
 
 Validation and protection levels affect the certificate price and time it will take to get one.
 
