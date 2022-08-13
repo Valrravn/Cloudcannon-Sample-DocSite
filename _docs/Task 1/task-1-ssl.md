@@ -5,50 +5,49 @@ order: 1
 author: Dmitry Korovin
 ---
 
-Secure Sockets Layer or SSL is the network security protocol designed to ensure secure client-server connections.
+**Secure Sockets Layer** or **SSL** is the network security protocol designed to ensure secure client-server connections.
 
 ## The Basics
 
-The SSL protocol encrypts data transmitted between a server and a client, which denies attackers a chance to intercept this traffic.
-Whenever a client attempts to connect to a server, the authentication\validation procedure starts.
+The SSL protocol encrypts data transmitted between a server and a client, which denies attackers a chance to intercept this traffic. Domains that support secure (HTTPS) connection must have SSL certificates installed on their servers.
 
-* The client starts the process by sending the `"Client Hello"` message along with its portion of a cryptographic key.
-* The server responds with the `"Server Hello" - server key portion - key agreement protocol - SSL certificate - "Server Finished"` sequence. The key agreement protocol allows both parties to agree on an encryption key in safe way, without a third-party participating in the process.
-* The client checks the server's SSL certificate legitimacy, and proceeds to combining the encryption key from client and server key portions. This final key is used to cypher data.
+Whenever a client attempts to connect to a server, it first asks the server to set up a secured connection.
+There are multiple ways to for a server and client to agree to use the secure connection. Two major ways are:
 
+* Use the specific port (for example, port 443 is used exclusively for encrypted HTTPS traffic).
+* Send to server a protocol-specific request to use a secured connection.
 
-The entire process is called the **SSL handshake**, and the client-server connection opens only after the handshake stage was successfully passed.
-If a client is unable to verify a server's SSL certificate, the Error 525 pops up, and the connection is terminated.
+Once both parties agree on the connection security, the procedure called `SSL handshake` starts.
 
+1. The client sends the `"Client Hello"` message along with its portion of a cryptographic key.
+2. The server chooses a cypher and hash function from the list the client sent.
+3. The server sends back the `"Server Hello" - server key portion - key agreement protocol - SSL certificate - "Server Finished"` sequence. 
+4. The client checks the server's SSL certificate legitimacy, and proceeds to combining the encryption key from client and server key portions.
 
-## What Sites Need Certificates?
+If the handshake is successfull, both client and server use obtained key portions to generate encryption keys, and a secure connection opens.
 
-You are probably familiar with HTTP and HTTPS: different versions of the Hypertext Transfer Protocol that defines how data should be transmitted over the Internet.
-The "S" letter of HTTPS stands for "secure", and means the server uses a SSL\TLS certificate to ensure a secure connection.
-
-Not too long ago, it was advocated that HTTPS is required only for resources that deal with sensitive information: login pages, money transaction services, online brokers, and so on.
-Nowadays, HTTPS is a standard even for websites that commonly do not require state-of-the-art security measures (for instance, weather forecast or local school newspaper sites).
-This transition is furthermore accelerated by Google, who started the "HTTPS everywhere" initiative in 2014.
-
-Modern browsers automatically detect secure connections and draw a padlock icon next to the URL.
-Connections to HTTP resources are flagged as unsecure, and browsers advice users to thread cautiosly.
-
-This alone is the major reason to have an SSL certificate installed regardless of what your web-site does.
-As the number of cyber attacks rises and users become more aware of "digital hygiene" basics, more and more users opt for clicking "Back" when they land on insecure (meaning potentially malicious) pages.
-
+Otherwise, if any stage of a handshake fails (for example, a client is unable to verify a server's SSL certificate), the connection is cancelled.
 
 ## SSL vs TLS
 
-The latest 3.0 version of SSL was deprecated by RFC in 2015 in favor of TLS – the more secure encryption protocol.
-Technically speaking, it's only TLS now, but the catchy SSL acronym stuck with the industry, and both terms are often used interchangeably.
-If you're not particularly nitpicking about using correct terms, you can use any of them.
+The latest 3.0 version of SSL was deprecated by RFC in 2015 in favor of TLS – the more secure encryption protocol. This means the "SSL" protocol is no longer exists, and you can obtain and install only TLS certificates.
+However, the SSL acronym stuck with the industry, and both terms are often used interchangeably.
 
-## Certificate Authorities and Certificate Types
+## Certificate Authorities
 
 In order for the entire concept of TLS certificates to work, these certificates must come from a trusted source (otherwise, anyone could issue their own certificates and attach them to their websites).
-Such valid source is called a Certificate Authority (CA) – a trusted third-party provider that issues, stores, and signs digital certificates.
 
-Depending on the level of required protection and the number of subdomains, a CA issues different types of certificates.
+A trusted third-party provider that issues, stores, and signs digital certificates is called **Certificate Authority (CA)**.
+
+Three largest CAs are:
+
+* [IdenTrust](https://www.identrust.com/)
+* [Digicert](https://www.digicert.com/)
+* [Comodo Cybersecurity](https://www.comodo.com/)
+
+## Certificate Types
+
+CAs issue different types of certificates based on the level of required protection and the number of subdomains.
 
 Depending on the domain and subdomain number:
 
@@ -64,7 +63,40 @@ Depending on the required security level:
 
 Validation and protection levels affect the certificate price and time it will take to get one.
 
+
+## SSL Disadvantages
+
+### Vulnerabilities
+
+Newer TLS version are more secure compared to older SSL implementations. However, all versions have known implementation flaws that allow attackers to exloit them.
+
+The list of known SSL/TLS vulnerabilities:
+
+* POODLE
+* ...
+* ...
+
+### Connection Speed Issues
+
+Since secure connections start with the handshake stage, during which a client and server exchange data and use complex algorythms to create keys, connections open with a certain delay.
+This delay is negligible if connection speeds are high, visitor traffic is low, and both parties use moderately modern hardware. Otherwise, the certificate validation can significantly impact the connection speed.
+
+See also: Three Tips to Avoid Bandwidth Issues
+
+### Setup Issues
+
+Certificates do not guarantee secure connections all by themselves. The outcome greatly depends on the specific server configuration.
+SSL/TLS has an option to select a simplified, less efficient encryption method when a server is configured incorrectly, or uses outdated software.
+Such connections are still marked as "secure", but have lower chances to withstand attacks form knowledgeable hackers. 
+
+See also: How to Correctly Configure SSL/TLS Certificates
+
+### Plugin Compatibility
+
+Older plugins built without HTTPS in mind can trigger SSL/TLS errors. If your domains use outdated plugins, you will require to update them or find an alternative.
+
 ## See Also
 
+* Methods Used for Key Exchange/Agreement
 * How to Obtain and Install a Certificate
 * How to Resolve Error 525 (SSL Certificate Validation Failed)
