@@ -45,6 +45,8 @@ Three largest CAs are:
 * [Digicert](https://www.digicert.com/)
 * [Comodo Cybersecurity](https://www.comodo.com/)
 
+> See Also: Which Certificate Authority to Choose?
+
 ## Certificate Types
 
 CAs issue different types of certificates based on the level of required protection and the number of subdomains.
@@ -66,6 +68,8 @@ Validation and protection levels affect the certificate price and time it will t
 
 ## SSL Disadvantages
 
+Although you should always use SSL/TLS encryption, certificates exhibit a few drawback you should be aware of.
+
 ### Vulnerabilities
 
 Newer TLS version are more secure compared to older SSL implementations. However, all versions have known implementation flaws that allow attackers to exloit them.
@@ -81,7 +85,7 @@ The list of known SSL/TLS vulnerabilities:
 Since secure connections start with the handshake stage, during which a client and server exchange data and use complex algorythms to create keys, connections open with a certain delay.
 This delay is negligible if connection speeds are high, visitor traffic is low, and both parties use moderately modern hardware. Otherwise, the certificate validation can significantly impact the connection speed.
 
-See also: Three Tips to Avoid Bandwidth Issues
+> See also: Three Tips to Avoid Bandwidth Issues
 
 ### Setup Issues
 
@@ -89,7 +93,7 @@ Certificates do not guarantee secure connections all by themselves. The outcome 
 SSL/TLS has an option to select a simplified, less efficient encryption method when a server is configured incorrectly, or uses outdated software.
 Such connections are still marked as "secure", but have lower chances to withstand attacks form knowledgeable hackers. 
 
-See also: How to Correctly Configure SSL/TLS Certificates
+> See also: How to Correctly Configure SSL/TLS Certificates
 
 ### Plugin Compatibility
 
