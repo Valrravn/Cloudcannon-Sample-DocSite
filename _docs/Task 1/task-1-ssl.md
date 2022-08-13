@@ -1,11 +1,11 @@
 ---
-title: Task #1 - How SSL Works
+title: Task 1 - How SSL Works
 category: Resume
 order: 1
 author: Dmitry Korovin
 ---
 
-# Task #1: SSL: How It Works
+# Task 1: SSL: How It Works
 
 Secure Sockets Layer or SSL is the network security protocol designed to ensure secure client-server connections.
 
