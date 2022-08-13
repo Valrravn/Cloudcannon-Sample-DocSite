@@ -1,5 +1,5 @@
 ---
-title: # Task 1: SSL - How It Works
+title: "Task #1: SSL - How It Works"
 category: Resume
 order: 1
 author: Dmitry Korovin
